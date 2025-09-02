@@ -7,11 +7,8 @@ const CardList = ({books,favorite, isFavorite, onDelete, state}) => {
             {books.map((book) => 
             <CardBook
             book={book} 
-            key={book.key}
+            key={book.cover_i}
             favorite={favorite}
-            isFavorite={isFavorite}
-            onDelete={onDelete}
-            state={state}
             />)}
         </>    )
 }

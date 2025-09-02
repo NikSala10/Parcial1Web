@@ -11,9 +11,10 @@ function App() {
   const [favorites, setFavorites] = useState([]);
   
   const filteredBooks = books.filter((book) => book.title.toLowerCase().includes(search.toLowerCase()));  
+console.log(filteredBooks);
 
   const handleAddBook = (() => {
-    const favoriteBooks = [...books, favorites]
+    const favoriteBooks = [...favorites, favorites]
     setFavorites(favoriteBooks)
   })
 
@@ -42,6 +43,8 @@ function App() {
   if(error) return <p>Hay un error: {error}</p>
   if(loading) return <p>Cargando.....</p>
 
+
+  
   return (
     <>
       <input 
@@ -61,7 +64,7 @@ function App() {
       <div>
         {favorites.length > 0 ? (
 					favorites.map((book, i) =>
-            <CardList favorite={favorites} key={book.key}/>
+            <CardList books={favorites} key={book.key}/>
             )
 			) : (
 				<p>No books available.</p>
